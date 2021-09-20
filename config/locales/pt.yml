@@ -1,44 +1,51 @@
 pt:
+  activemodel:
+    attributes:
+      external_event:
+        title: Título
+        start_at: Começa em
+        end_at: Termina em
+        url: Endereço eletrônico
   decidim:
     calendar:
       admin:
         actions:
-          new_external_event: New external event
+          new_external_event: Novo evento externo
         external_events:
           index:
-            title: External events
-            no_records_html: <p>No external events created.</p> <p>Start by adding a external event from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            title: Eventos externos
+            no_records_html: <p>Nenhum evento externo criado.</p> <p>Comece adicionando um evento externo a partir do botão "<a href="%{new_set_link}">%{button_name}</a>".</p>
           create:
-            invalid: Invalid external event
-            success: External event created successfully
+            invalid: Evento externo inválido
+            success: Evento externo criado com sucesso
           destroy:
-            success: External event deleted successfully
+            success: Evento externo excluído com sucesso
           edit:
-            save: Save external event
+            save: Salvar evento externo
           form:
-            title: External event
+            title: Evento externo
           new:
-            title: New external event
-            create: Create external event
+            title: Novo evento externo
+            create: Criar evento externo
           update:
-            invalid: Error updating external event
-            success: External event updated successfully
+            invalid: Erro ao atualizar evento externo
+            success: Evento externo atualizado com sucesso
         models:
           external_events:
             fields:
-              title: Title
-              start_at: Start at
-              end_at: End at
-              url: URL
+              title: Título
+              start_at: Começa em
+              end_at: Termina em
+              url: Endereço eletrônico
       index:
-        title: Global Calendar
+        title: Calendário Global
         filters:
-          consultation: Consultations
+          consultation: Consultas
           debate: Debates
-          external_event: External events
-          meeting: Meetings
-          participatory_step: Participatory Process
+          external_event: Eventos externos
+          meeting: Reuniões
+          participatory_step: Processos Participativos
       menu:
-        calendar: Calendar
-        gantt: Gantt Graph
-        ical: Download ICAL
+        calendar: Calendário
+        gantt: Gráfico de Gantt
+        ical: Baixar ICAL
