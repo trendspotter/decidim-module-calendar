@@ -30,5 +30,9 @@ module Decidim
         end
       end
     end
+
+    def self.all
+      []
+    end
   end
 end
