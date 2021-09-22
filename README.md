@@ -1,4 +1,4 @@
-# Decidim::Calendar
+# Decidim::EventCalendar
 
 ![Build](https://github.com/alabs/decidim-module-calendar/workflows/Ruby/badge.svg)
 [![Coverage](https://img.shields.io/codeclimate/coverage/alabs/decidim-module-calendar.svg)](https://codeclimate.com/github/alabs/decidim-module-calendar)
@@ -28,7 +28,7 @@ gem "decidim-calendar"
 Run this rake tasks:
 
 ```bash
-bundle exec rake decidim_calendar:install:migrations
+bundle exec rake decidim_event_calendar:install:migrations
 bundle exec rake db:migrate
 ```
 

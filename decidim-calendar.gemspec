@@ -2,10 +2,10 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/calendar/version"
+require "decidim/event_calendar/version"
 
 Gem::Specification.new do |s|
-  s.version = Decidim::Calendar.version
+  s.version = Decidim::EventCalendar.version
   s.authors = ["Mijail Rondon"]
   s.email = ["mijail@riseup.net"]
   s.license = "AGPL-3.0"
@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-admin", Decidim::Calendar::DECIDIM_VERSION
-  s.add_dependency "decidim-core", Decidim::Calendar::DECIDIM_VERSION
+  s.add_dependency "decidim-admin", Decidim::EventCalendar::DECIDIM_VERSION
+  s.add_dependency "decidim-core", Decidim::EventCalendar::DECIDIM_VERSION
 end

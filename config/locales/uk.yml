@@ -1,6 +1,6 @@
 uk:
   decidim:
-    calendar:
+    event_calendar:
       admin:
         actions:
           new_external_event: New external event

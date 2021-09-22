@@ -1,17 +1,17 @@
 <%=
   extended_navigation_bar([
     {
-      name: t("menu.calendar", scope: "decidim.calendar"),
+      name: t("menu.calendar", scope: "decidim.event_calendar"),
       url: calendar_index_path,
       active: is_active_link?(calendar_index_path, :exclusive)
     },
     {
-      name: t("menu.gantt", scope: "decidim.calendar"),
+      name: t("menu.gantt", scope: "decidim.event_calendar"),
       url: calendar_gantt_path,
       active: is_active_link?(calendar_gantt_path, :exclusive)
     },
     {
-      name: t("menu.ical", scope: "decidim.calendar"),
+      name: t("menu.ical", scope: "decidim.event_calendar"),
       url: calendar_ical_path,
     }
   ], max_items: 1)

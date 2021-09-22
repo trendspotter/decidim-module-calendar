@@ -1,6 +1,6 @@
 fr:
   decidim:
-    calendar:
+    event_calendar:
       admin:
         actions:
           new_external_event: Nouvel événement externe

@@ -7,7 +7,7 @@ pt:
         end_at: Termina em
         url: Endereço eletrônico
   decidim:
-    calendar:
+    event_calendar:
       admin:
         actions:
           new_external_event: Novo evento externo
