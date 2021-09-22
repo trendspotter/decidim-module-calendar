@@ -14,7 +14,7 @@ describe "manage help section" do
 
   it "displays help section for calendar" do
     Capybara.ignore_hidden_elements = false
-    expect(page).to have_content("Calendars")
+    expect(page).to have_content("Calendar")
     Capybara.ignore_hidden_elements = true
   end
 end
