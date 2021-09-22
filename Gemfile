@@ -4,22 +4,26 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim"
-gem "decidim-calendar", path: "."
-gem "decidim-consultations"
+DECIDIM_VERSION = "0.24.3"
 
-gem "puma", ">= 4.3"
+gem "decidim", DECIDIM_VERSION
+gem "decidim-calendar", path: "."
+gem "decidim-consultations", DECIDIM_VERSION
+
+gem "puma", ">= 5.5"
 gem "uglifier", "~> 4.1"
+
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 group :development, :test do
   gem "bootsnap"
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", git: "https://github.com/decidim/decidim"
+  gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
-  gem "faker", "~> 1.9"
+  gem "faker", "~> 2.19"
   gem "letter_opener_web", "~> 1.3"
   gem "listen", "~> 3.1"
   gem "spring", "~> 2.0"
