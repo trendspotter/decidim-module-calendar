@@ -22,7 +22,7 @@ calendar view form.
 Edit the Gemfile and add this lines:
 
 ```ruby
-gem "decidim-calendar"
+gem "decidim-calendar", git: "https://github.com/luizsanches/decidim-module-calendar"
 ```
 
 Run this rake tasks:
@@ -41,12 +41,32 @@ For instructions how to setup your development environment for Decidim, see
 instructions for development for this project as well.
 
 ## Developing
+#### Dependencies
+- [Docker](https://docs.docker.com/engine/install)
+- [Docker Compose](https://docs.docker.com/compose/install)
 
 Clone this repository or fork and run:
 
 ```bash
 bundle install
+
+docker-compose up -d
+
+export DATABASE_USERNAME=postgres
+export DATABASE_USERNAME=postgres
+
 rake development_app
+```
+
+### Testing
+#### Dependencies
+- [ChromeDriver](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
+
+Run the commands:
+
+```bash
+rake test_app
+rake spec
 ```
 
 ### Localization
