@@ -7,6 +7,7 @@
 <%= javascript_include_tag "decidim/calendar/gantt" %>
 <%= stylesheet_link_tag "decidim/calendar/gantt" %>
 
+<% unless @events.all?(&:nil?) %>
 <script charset="utf-8">
   var tasks = [
     <% @events.each do |p| %>
@@ -22,3 +23,4 @@
     custom_popup_html: null
   });
 </script>
+<% end %>
