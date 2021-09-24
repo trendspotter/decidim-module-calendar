@@ -3,7 +3,7 @@
 SimpleCov.start do
   root ENV["ENGINE_ROOT"]
 
-  add_filter "lib/decidim/calendar/version.rb"
+  add_filter "lib/decidim/event_calendar/version.rb"
   add_filter "/spec"
 end
 
