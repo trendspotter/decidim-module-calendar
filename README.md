@@ -1,8 +1,8 @@
 # Decidim::EventCalendar
 
-![Build](https://github.com/alabs/decidim-module-calendar/workflows/Ruby/badge.svg)
-[![Coverage](https://img.shields.io/codeclimate/coverage/alabs/decidim-module-calendar.svg)](https://codeclimate.com/github/alabs/decidim-module-calendar)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/alabs/decidim-module-calendar.svg)](https://codeclimate.com/github/alabs/decidim-module-calendar/maintainability)
+[![Build Status](https://app.travis-ci.com/luizsanches/decidim-module-calendar.svg?branch=master)](https://app.travis-ci.com/luizsanches/decidim-module-calendar)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/bb5ce03c560a0d5bd032/test_coverage)](https://codeclimate.com/github/luizsanches/decidim-module-calendar/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/bb5ce03c560a0d5bd032/maintainability)](https://codeclimate.com/github/luizsanches/decidim-module-calendar/maintainability)
 
 This [Decidim](https://github.com/decidim/decidim) module enable a multitenant
 global calendar for Consultations, Debates, External Events, Meetings and

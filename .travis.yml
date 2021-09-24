@@ -1,0 +1,24 @@
+os: linux
+dist: focal
+language: ruby
+rvm: 2.7.3
+env:
+  global:
+  - DB_USER=postgres
+  - DB_PASS=
+addons:
+  postgresql: 13
+cache:
+  bundler: true
+before_install:
+- bundle config set without 'production'
+- bundle config set deployment 'true'
+before_script:
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- ./cc-test-reporter before-build
+- bundle exec rake test_app
+script:
+- bundle exec rake spec
+after_success:
+- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
