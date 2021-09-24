@@ -13,8 +13,6 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "puma", ">= 5.5"
 gem "uglifier", "~> 4.1"
 
-gem 'dotenv-rails', require: 'dotenv/rails-now'
-
 group :development, :test do
   gem "bootsnap"
   gem "byebug", "~> 11.0", platform: :mri
