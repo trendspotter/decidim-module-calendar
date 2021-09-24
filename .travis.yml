@@ -4,8 +4,7 @@ language: ruby
 rvm: 2.7.3
 env:
   global:
-  - DB_USER=postgres
-  - DB_PASS=
+  - DATABASE_USERNAME=postgres
 addons:
   postgresql: 13
 cache:
@@ -21,5 +20,8 @@ before_script:
 - bundle exec rake test_app
 script:
 - bundle exec rake spec
+after_script:
+- ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.json coverage/.resultset.json
+- ./cc-test-reporter upload-coverage -i coverage/codeclimate.json
 after_success:
 - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

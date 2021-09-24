@@ -53,7 +53,6 @@ bundle install
 docker-compose up -d
 
 export DATABASE_USERNAME=postgres
-export DATABASE_USERNAME=postgres
 
 rake development_app
 ```
