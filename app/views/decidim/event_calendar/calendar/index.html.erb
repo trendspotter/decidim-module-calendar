@@ -37,10 +37,16 @@
      },
      events: <%= render_events(@events).html_safe %>,
      eventRender: function(info) {
+       hour = info.event.start.toTimeString().substr(0, 5)
+
+       title = "<span class=\"fc-title\" title=\"" + hour + " - " + info.event.title + "\"><b>" + hour + "</b> - " + info.event.title + "</span>"
+
        if ("subtitle" in info.event.extendedProps) {
          title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"
-         info.el.firstChild.innerHTML = title
        }
+
+       info.el.firstChild.innerHTML = title
+
        return filters.includes(info.event.extendedProps.resourceId);
      }
    });
