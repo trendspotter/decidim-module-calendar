@@ -3,19 +3,37 @@
 module Decidim
   module EventCalendar
     class CalendarController < Decidim::EventCalendar::ApplicationController
-      helper Decidim::EventCalendar::CalendarHelper
       include ParticipatorySpaceContext
       layout "calendar"
+
       def index
-        @events = Event.all(current_organization)
         @resources = %w(debate external_event meeting participatory_step)
-        @resources = @resources << "consultation" if defined? Decidim::Consultation
+        @resources = @resources << 'consultation' if defined? Decidim::Consultation
       end
 
-      def gantt
-        @events = Decidim::ParticipatoryProcessStep.where.not(start_date: nil).order(decidim_participatory_process_id: :asc, position: :asc, start_date: :asc).map do |p|
-          Decidim::EventCalendar::EventPresenter.new(p) if p.organization == current_organization
+      def events
+        events = Event.all(current_organization).collect do |event|
+          Decidim::EventCalendar::Event.calendar(event)
         end
+
+        render json: events, content_type: 'application/json'
+      end
+
+      def gantt; end
+
+      def gantt_tasks
+        events = Decidim::ParticipatoryProcessStep.where.not(start_date: nil)
+          .order(decidim_participatory_process_id: :asc, position: :asc, start_date: :asc)
+          .map do |step|
+          if step.organization == current_organization
+            process_step = Decidim::EventCalendar::EventPresenter.new(step)
+            Decidim::EventCalendar::Event.gantt(process_step)
+          end
+        end
+
+        events = nil if events.all?(&:nil?)
+
+        render json: events, content_type: 'application/json'
       end
 
       def ical

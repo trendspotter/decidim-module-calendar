@@ -1,67 +1,19 @@
 <% provide :meta_title, t("event_calendar.index.title", scope: "decidim") %>
+
 <%= participatory_space_wrapper do %>
   <div class="row columns">
     <div class="calendar-filters button-group">
-      <% @resources.each do |t| %>
-        <button class="button tiny cal-filter <%= t %>" id="<%= t %>"><%= I18n.t(t, scope: "decidim.event_calendar.index.filters") %></button>
+      <% @resources.each do |resource| %>
+        <button class="button tiny cal-filter <%= resource %>" id="<%= resource %>">
+          <%= I18n.t(resource, scope: "decidim.event_calendar.index.filters") %>
+        </button>
       <% end %>
+      <select id="locale-selector" class="large-1"></select>
     </div>
+
     <div id="calendar"></div>
   </div>
 <% end %>
-<%= javascript_include_tag "decidim/calendar/calendar" %>
-<%= stylesheet_link_tag "decidim/calendar/calendar" %>
 
- <script>
-   let filters = <%= @resources.to_json.html_safe %>;
-
-   function removeFilter(filters, filter){
-     return filters.filter((element) => element !== filter)
-   }
-
-   const calendarEl = document.getElementById('calendar');
-   const calendar = new FullCalendar.Calendar(calendarEl, {
-     plugins: ["interaction", "timeGrid", "dayGrid"],
-     defaultView: "dayGridMonth",
-     locale: "es",
-     header: {
-       left: "prev,next today",
-       center: "title",
-       right: "dayGridMonth,dayGridWeek,dayGridDay"
-     },
-     eventTimeFormat: {
-       hour: "2-digit",
-       minute: "2-digit",
-       hour12: false,
-       omitZeroMinute: false
-     },
-     events: <%= render_events(@events).html_safe %>,
-     eventRender: function(info) {
-       hour = info.event.start.toTimeString().substr(0, 5)
-
-       title = "<span class=\"fc-title\" title=\"" + hour + " - " + info.event.title + "\"><b>" + hour + "</b> - " + info.event.title + "</span>"
-
-       if ("subtitle" in info.event.extendedProps) {
-         title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"
-       }
-
-       info.el.firstChild.innerHTML = title
-
-       return filters.includes(info.event.extendedProps.resourceId);
-     }
-   });
-   $(function() {
-     calendar.setOption('locale', "<%= I18n.locale %>");
-     calendar.render();
-     $(".cal-filter").on("click", function() {
-       $(this).toggleClass("hollow");
-       let filter = $(this).attr("id");
-       if (filters.includes(filter)) {
-         filters = removeFilter(filters, filter)
-       } else {
-         filters.push(filter)
-       }
-       calendar.rerenderEvents()
-     });
-   });
- </script>
+<%= javascript_pack_tag "decidim_calendar" %>
+<%= stylesheet_pack_tag "decidim_calendar" %>

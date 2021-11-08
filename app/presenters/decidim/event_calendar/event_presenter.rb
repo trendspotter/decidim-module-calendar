@@ -36,7 +36,7 @@ module Decidim
       def full_id
         case __getobj__.class.name
         when "Decidim::ParticipatoryProcessStep"
-          "#{participatory_process.id}-#{id}"
+          "#{participatory_process.id}#{id}".to_i
         else
           id
         end
@@ -45,7 +45,15 @@ module Decidim
       def parent
         case __getobj__.class.name
         when "Decidim::ParticipatoryProcessStep"
-          "#{participatory_process.id}-#{participatory_process.steps.find_by(position: position - 1).id}" if position.positive?
+          "#{participatory_process.id}#{participatory_process.steps.find_by(position: position - 1).id}".to_i if position.positive?
+        end
+      end
+
+      def target
+        case __getobj__.class.name
+        when "Decidim::ParticipatoryProcessStep"
+          step = participatory_process.steps.find_by(position: position + 1)
+          "#{participatory_process.id}#{step.id}".to_i if step
         end
       end
 
@@ -101,6 +109,18 @@ module Decidim
                       else
                         ""
                       end
+      end
+
+      def description
+        @description ||=  case __getobj__.class.name
+                          when "Decidim::ParticipatoryProcessStep",
+                               "Decidim::Meetings::Meeting",
+                               "Decidim::Debates::Debate",
+                               "Decidim::Consultation"
+                            __getobj__.description
+                          else
+                            ""
+                          end
       end
 
       def all_day?

@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "0.24.3"
+DECIDIM_VERSION = "0.25.1"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-calendar", path: "."
@@ -27,6 +27,7 @@ group :development do
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 3.5"
+  gem "sqlite3"
 end
 
 group :test do

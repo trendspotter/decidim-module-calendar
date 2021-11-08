@@ -16,10 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.6
+    - name: Set up Ruby 2.7
       uses: actions/setup-ruby@v1
       with:
-        ruby-version: 2.6.x
+        ruby-version: 2.7.x
     - name: Setup cache key and directory for gems cache
       uses: actions/cache@v1
       with:
@@ -37,4 +37,3 @@ jobs:
       run: |
         bundle exec rake test_app
         bundle exec rspec
-
