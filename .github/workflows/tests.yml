@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby 2.7
-      uses: actions/setup-ruby@v1
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 2.7.x
     - name: Setup cache key and directory for gems cache
@@ -35,7 +35,7 @@ jobs:
         RAILS_ENV: test
         DATABASE_USERNAME: postgres
       run: |
-        bundle exec rake test_app > /dev/null 2>&1
+        bundle exec rake test_app || true
         wget https://raw.githubusercontent.com/decidim/decidim/23662d3f511a442c15519c541647c384f9ab5159/decidim-generators/lib/decidim/generators/app_templates/webpacker.yml -O spec/decidim_dummy_app/config/webpacker.yml
         cd spec/decidim_dummy_app
         bundle exec rails webpacker:binstubs
