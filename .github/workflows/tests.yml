@@ -16,10 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 2.7
+    - name: Set up Ruby version
       uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 2.7.x
     - name: Setup cache key and directory for gems cache
       uses: actions/cache@v1
       with:
