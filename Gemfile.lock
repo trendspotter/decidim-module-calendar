@@ -802,6 +802,7 @@ DEPENDENCIES
   listen (~> 3.1)
   puma (>= 5.5)
   simplecov
+  simplecov-cobertura
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
   sqlite3
