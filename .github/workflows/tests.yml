@@ -30,7 +30,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby version
-      uses: ruby/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
         bundler-cache: true
     - uses: actions/setup-node@v1
@@ -46,11 +46,6 @@ jobs:
         key: npm-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           npm-
-    - name: Install dependencies
-      run: |
-        gem install bundler -v 2.1.4
-        bundle config path vendor/bundle
-        bundle install --jobs 4 --retry 3
     - name: Build and test
       run: |
         npm install
@@ -69,7 +64,7 @@ jobs:
         cd ../..
         bundle exec rspec
     - name: Publish code coverage
-      uses: paambaati/codeclimate-action@v3.0.0
+    - uses: paambaati/codeclimate-action@v3.0.0
       env:
         CC_TEST_REPORTER_ID: 6e1f20efc5825ad174752f381d2cda8f2ba021589a23df1ddb91d86f803c5d31
       with:
