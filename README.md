@@ -1,6 +1,6 @@
 # Decidim::EventCalendar
 
-[![Build Status](https://app.travis-ci.com/luizsanches/decidim-module-calendar.svg?branch=master)](https://app.travis-ci.com/luizsanches/decidim-module-calendar)
+[![Build](https://github.com/luizsanches/decidim-module-calendar/actions/workflows/tests.yml/badge.svg)](https://github.com/luizsanches/decidim-module-calendar/actions/workflows/tests.yml)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bb5ce03c560a0d5bd032/test_coverage)](https://codeclimate.com/github/luizsanches/decidim-module-calendar/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bb5ce03c560a0d5bd032/maintainability)](https://codeclimate.com/github/luizsanches/decidim-module-calendar/maintainability)
 

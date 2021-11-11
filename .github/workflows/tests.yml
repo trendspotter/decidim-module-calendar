@@ -11,7 +11,6 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -69,3 +68,7 @@ jobs:
         RAILS_ENV=test bundle exec rails webpacker:compile
         cd ../..
         bundle exec rspec
+    - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
+      env:
+        CC_TEST_REPORTER_ID: 6e1f20efc5825ad174752f381d2cda8f2ba021589a23df1ddb91d86f803c5d31
