@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "0.25.1"
+DECIDIM_VERSION = "0.25.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-calendar", path: "."

@@ -37,5 +37,9 @@ module Decidim
     def self.all
       []
     end
+
+    def self.table_name
+      'calendars'
+    end
   end
 end
