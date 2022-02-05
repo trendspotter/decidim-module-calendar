@@ -22,10 +22,10 @@ module Decidim
       initializer "decidim_calendar.menu" do
         Decidim.menu :menu do |menu|
           menu.add_item :event_calendar,
-                    I18n.t("menu.calendar", scope: "decidim.event_calendar"),
-                    decidim_calendar.calendar_index_path,
-                    position: 6.0,
-                    active: :inclusive
+                        I18n.t("menu.calendar", scope: "decidim.event_calendar"),
+                        decidim_calendar.calendar_index_path,
+                        position: 6.0,
+                        active: :inclusive
         end
       end
 
@@ -39,7 +39,7 @@ module Decidim
     end
 
     def self.table_name
-      'calendars'
+      "calendars"
     end
   end
 end

@@ -8,7 +8,7 @@ module Decidim
 
       def index
         @resources = %w(debate external_event meeting participatory_step)
-        @resources = @resources << 'consultation' if defined? Decidim::Consultation
+        @resources = @resources << "consultation" if defined? Decidim::Consultation
       end
 
       def events
@@ -16,15 +16,15 @@ module Decidim
           Decidim::EventCalendar::Event.calendar(event)
         end
 
-        render json: events, content_type: 'application/json'
+        render json: events, content_type: "application/json"
       end
 
       def gantt; end
 
       def gantt_tasks
         events = Decidim::ParticipatoryProcessStep.where.not(start_date: nil)
-          .order(decidim_participatory_process_id: :asc, position: :asc, start_date: :asc)
-          .map do |step|
+                                                  .order(decidim_participatory_process_id: :asc, position: :asc, start_date: :asc)
+                                                  .map do |step|
           if step.organization == current_organization
             process_step = Decidim::EventCalendar::EventPresenter.new(step)
             Decidim::EventCalendar::Event.gantt(process_step)
@@ -33,7 +33,7 @@ module Decidim
 
         events = nil if events.all?(&:nil?)
 
-        render json: events, content_type: 'application/json'
+        render json: events, content_type: "application/json"
       end
 
       def ical

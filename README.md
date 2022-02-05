@@ -41,8 +41,11 @@ For instructions how to setup your development environment for Decidim, see
 instructions for development for this project as well.
 
 ## Developing
-#### Dependencies
+
+Dependencies:
+
 - [Docker](https://docs.docker.com/engine/install)
+
 - [Docker Compose](https://docs.docker.com/compose/install)
 
 Clone this repository or fork and run:
@@ -57,8 +60,10 @@ export DATABASE_USERNAME=postgres
 rake development_app
 ```
 
-### Testing
-#### Dependencies
+## Testing
+
+Dependencies:
+
 - [ChromeDriver](https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver)
 
 Run the commands:
@@ -68,7 +73,7 @@ rake test_app
 rake spec
 ```
 
-### Localization
+## Localization
 
 If you would like to see this module in your own language, you can help with
 its translation at Crowdin:

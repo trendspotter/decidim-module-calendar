@@ -49,7 +49,7 @@ module Decidim
 
         return if finish.nil?
 
-        finish = finish + 1.day if event.all_day?
+        finish += 1.day if event.all_day?
 
         finish.strftime("%FT%R")
       end
@@ -64,7 +64,7 @@ module Decidim
           percent: progress_gantt(event),
           links: [{
             target: event.target,
-            type: 'FS'
+            type: "FS"
           }]
         }
       end

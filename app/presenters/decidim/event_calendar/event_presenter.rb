@@ -112,15 +112,15 @@ module Decidim
       end
 
       def description
-        @description ||=  case __getobj__.class.name
-                          when "Decidim::ParticipatoryProcessStep",
-                               "Decidim::Meetings::Meeting",
-                               "Decidim::Debates::Debate",
-                               "Decidim::Consultation"
-                            __getobj__.description
-                          else
-                            ""
-                          end
+        @description ||= case __getobj__.class.name
+                         when "Decidim::ParticipatoryProcessStep",
+                              "Decidim::Meetings::Meeting",
+                              "Decidim::Debates::Debate",
+                              "Decidim::Consultation"
+                           __getobj__.description
+                         else
+                           ""
+                         end
       end
 
       def all_day?
