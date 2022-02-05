@@ -21,12 +21,12 @@ describe "manage external events" do
 
     it "create a new external event" do
       execute_script("$('#external_event_start_at').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.first(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
       page.find(".datepicker-dropdown .minute", text: "10:50").click
 
       execute_script("$('#external_event_end_at').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.first(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 
@@ -39,7 +39,7 @@ describe "manage external events" do
           ca: "Evento de ejemplo"
         )
 
-        fill_in :external_event_url, with: "https://example.org"
+        execute_script("$('#external_event_url').val('https://example.org')")
 
         find("*[type=submit]").click
       end
@@ -78,12 +78,12 @@ describe "manage external events" do
       end
 
       execute_script("$('#external_event_start_at').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.first(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "10:00").click
       page.find(".datepicker-dropdown .minute", text: "10:50").click
 
       execute_script("$('#external_event_end_at').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
+      page.first(".datepicker-dropdown .day", text: "12").click
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 
@@ -95,12 +95,14 @@ describe "manage external events" do
           es: "Edited Evento de ejemplo",
           ca: "Edited Evento de ejemplo"
         )
-        fill_in :external_event_url, with: "https://example.org"
+
+        execute_script("$('#external_event_url').val('https://example.org')")
 
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
+
       within "#events" do
         expect(page).to have_content("Edited Example Event")
       end
